@@ -1,0 +1,59 @@
+{
+  "version": "1.0",
+  "properties": [
+    {
+      "id": "open_screen_text",
+      "name": "开屏文字",
+      "desc": "",
+      "mode": "rw",
+      "define": {
+        "type": "string",
+        "min": "0",
+        "max": "24"
+      },
+      "required": false
+    },
+    {
+      "id": "company",
+      "name": "公司",
+      "desc": "",
+      "mode": "rw",
+      "define": {
+        "type": "string",
+        "min": "0",
+        "max": "24"
+      },
+      "required": false
+    },
+    {
+      "id": "title",
+      "name": "头衔",
+      "desc": "",
+      "mode": "rw",
+      "define": {
+        "type": "string",
+        "min": "0",
+        "max": "24"
+      },
+      "required": false
+    },
+    {
+      "id": "name",
+      "name": "姓名",
+      "desc": "",
+      "mode": "rw",
+      "define": {
+        "type": "string",
+        "min": "0",
+        "max": "24"
+      },
+      "required": false
+    }
+  ],
+  "events": [],
+  "actions": [],
+  "profile": {
+    "ProductId": "WR00ATPGRU",
+    "CategoryId": "1"
+  }
+}
