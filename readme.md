@@ -1,13 +1,44 @@
+# DIY electronic work card
+English | [简体中文](#DIY电子工牌)
+## Development environment setup
+1. [Build the Arduino development environment.](https://heltec-automation.readthedocs.io/zh_CN/latest/general/how_to_install_git_and_arduino.html)   
+2. [Install the development framework.](https://heltec-automation.readthedocs.io/zh_CN/latest/esp32/quick_start.html#git)   
+
+## use demo
+### Basic use of the development board
+1. Open the **LoRaWan_CLASS_A_wakeOverTheAir.ino** example and configure it as follows.Select the **Tools** option, and enter the following configuration: (Note: Only the key options are listed below, other options can be configured as needed)
+    | development board | lora_eink_board  |
+    |------- |-----------------------|   
+    |LoraWAN Region | REGION_CN470|
+    |LoRaWan Debug  | none         |
+    |LORAWAN_DEVEUI | CUSTOM     |
+   
+2. After connecting to the serial port, click Download to download the program to be run.
+3.If you are prompted that a license is required, open the corresponding [URL](http://resource.heltec.cn/search), inquire and enter.
+4. After normal operation, the serial port will print **Within 10 seconds, send any data to the serial port and enter the configuration mode.** Send any data to the serial port within 10S to enter the configuration mode. If it is not sent, it will enter normal operation after 10S. (The program will only wait 10S for the first run after reset, and will not wait again later.)
+5. After entering the configuration mode, you can configure the following three parameters according to the following format.
+>- dev_eui=2232330000888801
+>- app_key=88888888888888888888888888886601
+>- qrcode_info={"DeviceName":"e_link","ProductId":"WR00ATPGRU","Signature":"a83aaa9708a54790ae020dfa809ca998"}
+6. After the configuration is complete, reset can be used normally.
+### Use Tencent Lianlian for remote control
+1. See [LoRaWAN Development Document](https://cloud.tencent.com/document/product/1081/52426) to add gateway and node information on Tencent Cloud Server.
+2. Product development -> product name -> import object model, import the object model json file (decode/decode.json) into the object model.
+3. Product Development -> Product Name -> Device Development -> Cloud Analysis -> Downlink Data Analysis, Copy the content of the data analysis file (data_decode/decode.js) to the downlink data analysis column.
+4. Product development->product name->interactive development->configure applet->panel configuration, select H5 custom panel, and put the JS file (data_decode/SummitInfo_panel-default.c1a671ab6c.js) and CSS file (data_decode/1_SummitInfo_panel-default) .8a85310b27.css) into the corresponding location.
+5. Open the Tencent Lianlian applet in WeChat, scan the QR code on the Tencent Cloud website (product development -> product name -> device debugging -> QR code) to enter the Tencent Lianlian applet delivery interface (as shown in the figure: img/ Tencent Lianlian applet interface.jpg). After connecting lora to the network, it can be distributed and displayed on the ink screen.        
+Note: You can also parse the QR code above, and then configure it through the serial port and display it on the ink screen. Then use the Tencent Lianlian applet to scan.
+
 # DIY电子工牌
 ## 开发环境搭建
 1. [搭建Arduino开发环境。](https://heltec-automation.readthedocs.io/zh_CN/latest/general/how_to_install_git_and_arduino.html)   
 2. [安装开发框架。](https://heltec-automation.readthedocs.io/zh_CN/latest/esp32/quick_start.html#git)   
-3. 用 boards.txt(data_decode/boards.txt) 替换**Arduino\hardware\heltec\esp32** 文件夹下的 boards.txt。
+
 ## 使用演示
 ### 开发板基本使用
 1. 打开 **LoRaWan_CLASS_A_wakeOverTheAir.ino** 示例，并按照如下步骤进行配置。
  选择**工具**选项,并进入如下配置：(注：下面只列出了关键选项，其它选项自行根据需要配置)
-    | 开发板  | wireless_stick_lite  |
+    | 开发板  | lora_eink_board  |
     |------- |-----------------------|   
     |LoraWAN Region | REGION_CN470|
     |LoRaWan Debug  | 无          |
